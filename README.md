@@ -32,6 +32,8 @@ This API only supports GET requests.
 
 * **URL**
 
+  Return all jobs, optionally searched or filtered by URL parameters
+
   /jobs
 
 * **Method:**
@@ -52,7 +54,7 @@ This API only supports GET requests.
 
     `type=[alphabetical]` - filter jobs by the job type, the available values are: `Part time`, `Full time`, `Contract`. Note: not all jobs have a type
 
-  * **Success Response:**
+* **Success Response:**
 
       * **Code:** 200 <br />
         **Content:** <br />
@@ -81,6 +83,61 @@ This API only supports GET requests.
             }
         ]
         ```
+
+* **Error Response:**
+
+    * **Code:** 500 SERVER ERROR <br />
+      **Content:** `{"message": "Unexpected error while encoding JSON data"}`
+
+* **URL**
+
+  Returns the 10 most recent job posts
+
+  /jobs/recent
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  **Required:**
+
+  There are no required URL Params
+
+  **Optional:**
+
+  There are no optional URL Params
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+
+  ```json
+  [
+      {
+          "id": "300",
+          "job_title": "Junior software engineer",
+          "company": "Demivee",
+          "logo": "https://dummyimage.com/250/000000/89e632&text=Logo",
+          "salary": "127228",
+          "type": "Full time",
+          "skills": [
+              {"id": "5","skill": "Ruby"}, {"id": "8","skill": "Python"}
+          ]
+      },
+      {
+          "id": "439",
+          "job_title": "Junior software engineer",
+          "company": "Yata",
+          "logo": "https://dummyimage.com/250/000000/d91c4e&text=Logo",
+          "salary": "129291",
+          "type": null,
+          "skills": [{"id": "2","skill": "JavaScript"}]
+      }
+  ]
+  ```
 
 * **Error Response:**
 
