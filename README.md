@@ -30,7 +30,7 @@ That's it! Now go build something cool.
 
 This API only supports GET requests.
 
-#### Return all jobs, optionally searched or filtered by URL parameters
+### Return all jobs, optionally searched or filtered by URL parameters
 
 * **URL**
 
@@ -89,7 +89,7 @@ This API only supports GET requests.
     * **Code:** 500 SERVER ERROR <br />
       **Content:** `{"message": "Unexpected error while encoding JSON data"}`
 
-#### Returns the 10 most recent job posts
+### Returns the 10 most recent job posts
 
 * **URL**
 
@@ -145,11 +145,61 @@ This API only supports GET requests.
       **Content:** `{"message": "Unexpected error while encoding JSON data"}`
 
 
-#### Returns all information about a single job
+### Returns all information about a single job
 
 * **URL**
 
   /jobs/{id}
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  **Required:**
+
+  There are no required URL Params
+
+  **Optional:**
+
+  There are no optional URL Params
+
+* **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** <br />
+
+  ```json
+  {
+      "id": "300",
+      "job_title": "Junior software engineer",
+      "company": "Demivee",
+      "logo": "https://dummyimage.com/250/000000/89e632&text=Logo",
+      "salary": "127228",
+      "type": "Full time",
+      "skills": [
+          {"id": "5","skill": "Ruby"}, {"id": "8","skill": "Python"}
+      ]
+  }
+  ```
+
+* **Error Response:**
+
+    * **Code:** 500 SERVER ERROR <br />
+      **Content:** `{"message": "Unexpected error while encoding JSON data"}`
+
+    OR
+
+    * **Code:** 400 CLIENT ERROR <br />
+      **Content:** `{"message": "Invalid job ID"}`    
+
+
+### Returns 3 similar jobs to the provided job ID
+
+* **URL**
+
+  /jobs/{id}/similar
 
 * **Method:**
 
@@ -191,6 +241,15 @@ This API only supports GET requests.
           "salary": "129291",
           "type": null,
           "skills": [{"id": "2","skill": "JavaScript"}]
+      },
+      {
+          "id": "558",
+          "job_title": "Junior web developer",
+          "company": "Vinte",
+          "logo": "https://dummyimage.com/250/000000/d91c4e&text=Logo",
+          "salary": "20428",
+          "type": "Contract",
+          "skills": [{"id": "9","skill": "Bash"}]
       }
   ]
   ```
@@ -199,3 +258,8 @@ This API only supports GET requests.
 
     * **Code:** 500 SERVER ERROR <br />
       **Content:** `{"message": "Unexpected error while encoding JSON data"}`
+
+  OR
+
+    * **Code:** 400 CLIENT ERROR <br />
+      **Content:** `{"message": "Invalid job ID"}`   
