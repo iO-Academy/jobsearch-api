@@ -263,3 +263,132 @@ This API only supports GET requests.
 
     * **Code:** 400 CLIENT ERROR <br />
       **Content:** `{"message": "Invalid job ID"}`   
+
+### Returns all skills and a count of jobs related to that skill
+
+* **URL**
+
+  /skills
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  **Required:**
+
+  There are no required URL Params
+
+  **Optional:**
+
+  There are no optional URL Params
+
+* **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** <br />
+
+  ```json
+  [
+      {
+          "id": "1",
+          "skill": "PHP",
+          "job_count": "107"
+      },
+      {
+          "id": "2",
+          "skill": "JavaScript",
+          "job_count": "90"
+     }
+  ]
+  ```
+
+* **Error Response:**
+
+    * **Code:** 500 SERVER ERROR <br />
+      **Content:** `{"message": "Unexpected error while encoding JSON data"}`
+
+### Returns all companies that have current job postings
+
+* **URL**
+
+  /companies
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  **Required:**
+
+  There are no required URL Params
+
+  **Optional:**
+
+  There are no optional URL Params
+
+* **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** <br />
+
+  ```json
+  [    
+      "Abata",
+      "Abatz",
+      "Agimba",
+      "Agivu"
+  ]
+  ```
+
+* **Error Response:**
+
+    * **Code:** 500 SERVER ERROR <br />
+      **Content:** `{"message": "Unexpected error while encoding JSON data"}`
+
+### Returns 5 most recent companies that have posted a job
+
+* **URL**
+
+  /companies
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  **Required:**
+
+  There are no required URL Params
+
+  **Optional:**
+
+  There are no optional URL Params
+
+* **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** <br />
+
+  ```json
+  [    
+      {
+          "company": "Demimbu",
+          "logo": "https://dummyimage.com/250/d91c4e/ffffff&text=Logo",
+          "last_job_posted": "2021-12-31"
+      },
+      {
+          "company": "Eare",
+          "logo": "https://dummyimage.com/250/d91c4e/000000&text=Logo",
+          "last_job_posted": "2021-12-31"
+      }
+  ]
+  ```
+
+* **Error Response:**
+
+    * **Code:** 500 SERVER ERROR <br />
+      **Content:** `{"message": "Unexpected error while encoding JSON data"}`
