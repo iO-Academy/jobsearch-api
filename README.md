@@ -3,24 +3,27 @@
 <details>
 <summary>Run the API locally</summary>
 
-    Clone this repo into your docker `html` folder:
-    
-    ```bash
-    git clone git@github.com:iO-Academy/jobsearch-api.git
-    ```
-    
-    Once cloned, you must install the vendor code by running:
-    
-    ```bash
-    composer install
-    ```
-    
-    To run the application locally:
-    ```bash
-    composer start
-    ```
-    
-    That's it! Now go build something cool.
+<p></p>
+<p>
+Clone this repo into your docker `html` folder:
+
+```bash
+git clone git@github.com:iO-Academy/jobsearch-api.git
+```
+
+Once cloned, you must install the vendor code by running:
+
+```bash
+composer install
+```
+
+To run the application locally:
+```bash
+composer start
+```
+
+That's it! Now go build something cool.
+</p>
 </details>
 
 ## API documentation
@@ -51,32 +54,33 @@ This API only supports GET requests.
 
   * **Success Response:**
 
-      * **Code:** 200 
-        **Content:** 
-       ```json
-[
-    {
-        "id": "300",
-        "job_title": "Junior software engineer",
-        "company": "Demivee",
-        "logo": "https://dummyimage.com/250/000000/89e632&text=Logo",
-        "salary": "127228",
-        "type": null,
-        "skills": [
-            {"id": "5","skill": "Ruby"}, {"id": "8","skill": "Python"}
+      * **Code:** 200 <br />
+        **Content:** <br />
+
+        ```json
+        [
+            {
+                "id": "300",
+                "job_title": "Junior software engineer",
+                "company": "Demivee",
+                "logo": "https://dummyimage.com/250/000000/89e632&text=Logo",
+                "salary": "127228",
+                "type": "Full time",
+                "skills": [
+                    {"id": "5","skill": "Ruby"}, {"id": "8","skill": "Python"}
+                ]
+            },
+            {
+                "id": "439",
+                "job_title": "Junior software engineer",
+                "company": "Yata",
+                "logo": "https://dummyimage.com/250/000000/d91c4e&text=Logo",
+                "salary": "129291",
+                "type": null,
+                "skills": [{"id": "2","skill": "JavaScript"}]
+            }
         ]
-    },
-    {
-        "id": "439",
-        "job_title": "Junior software engineer",
-        "company": "Yata",
-        "logo": "https://dummyimage.com/250/000000/d91c4e&text=Logo",
-        "salary": "129291",
-        "type": null,
-        "skills": [{"id": "2","skill": "JavaScript"}]
-    }
-]
-    ```
+        ```
 
 * **Error Response:**
 
