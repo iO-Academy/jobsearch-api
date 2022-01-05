@@ -68,7 +68,7 @@ class JobsModel
 
     public function getJobById(int $id): array
     {
-        $sql = 'SELECT `id`, `job_title`, `company`, `logo`, `job_description`, `salary`, `type` FROM `jobs` WHERE `id` = ?';
+        $sql = 'SELECT `id`, `job_title`, `company`, `logo`, `job_description`, `salary`, `type`, `posted` FROM `jobs` WHERE `id` = ?';
         $query = $this->db->prepare($sql);
         $query->execute([$id]);
         return $query->fetch();

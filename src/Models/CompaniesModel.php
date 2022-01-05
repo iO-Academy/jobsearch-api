@@ -24,7 +24,7 @@ class CompaniesModel
 
     public function getRecentCompanies(): array
     {
-        $sql = 'SELECT DISTINCT `company`, `logo`, `posted` as "last_job_posted" FROM `jobs` ORDER BY `posted` DESC LIMIT 5';
+        $sql = 'SELECT DISTINCT `company`, `logo`, `posted` as "last_job_posted" FROM `jobs` ORDER BY `posted` DESC LIMIT 10';
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
