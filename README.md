@@ -1,38 +1,84 @@
-# Slim Framework 4 Skeleton Application
+# JobSearch RESTful API
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation along with the PHP-View template renderer. It also uses the Monolog logger.
+<details>
+<summary>Run the API locally</summary>
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+    Clone this repo into your docker `html` folder:
+    
+    ```bash
+    git clone git@github.com:iO-Academy/jobsearch-api.git
+    ```
+    
+    Once cloned, you must install the vendor code by running:
+    
+    ```bash
+    composer install
+    ```
+    
+    To run the application locally:
+    ```bash
+    composer start
+    ```
+    
+    That's it! Now go build something cool.
+</details>
 
-## Install the Application
+## API documentation
 
-Create a new directory with your project name, e.g:
+This API only supports GET requests.
 
+* **URL**
 
-```bash
-mkdir academyProject
-```
+  /jobs
 
-Once inside the new directory, clone this repo:
+* **Method:**
 
-```bash
-git clone git@github.com:Mayden-Academy/slim4-skeleton.git .
-```
+  `GET`
 
-One cloned, you must install the slim components by running:
+* **URL Params**
 
-```bash
-composer install
-```
+   **Required:**
 
-To run the application locally:
-```bash
-composer start
+   There are no required URL Params, this URL will return all jobs if no params are passed
 
-```
-Run this command in the application directory to run the test suite
-```bash
-composer test
-```
+   **Optional:**
 
-That's it! Now go build something cool.
+    `search=[alphanumeric]` - a search term which will search `job_title` and `company`. If no skill filter is provided, it will also search for jobs with skills like your search term.
+
+    `skill=[integer]` - the ID of a skill. When used alone, this will return all jobs with this skill, when combined with search, it will return jobs with this skill that match the search term in the `job_title` or `company` fields.
+
+    `type=[alphabetical]` - filter jobs by the job type, the available values are: `Part time`, `Full time`, `Contract`. Note: not all jobs have a type
+
+  * **Success Response:**
+
+      * **Code:** 200 
+        **Content:** 
+       ```json
+[
+    {
+        "id": "300",
+        "job_title": "Junior software engineer",
+        "company": "Demivee",
+        "logo": "https://dummyimage.com/250/000000/89e632&text=Logo",
+        "salary": "127228",
+        "type": null,
+        "skills": [
+            {"id": "5","skill": "Ruby"}, {"id": "8","skill": "Python"}
+        ]
+    },
+    {
+        "id": "439",
+        "job_title": "Junior software engineer",
+        "company": "Yata",
+        "logo": "https://dummyimage.com/250/000000/d91c4e&text=Logo",
+        "salary": "129291",
+        "type": null,
+        "skills": [{"id": "2","skill": "JavaScript"}]
+    }
+]
+    ```
+
+* **Error Response:**
+
+    * **Code:** 500 SERVER ERROR <br />
+      **Content:** `{"message": "Unexpected error while encoding JSON data"}`
