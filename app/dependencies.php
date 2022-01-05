@@ -33,5 +33,17 @@ return function (ContainerBuilder $containerBuilder) {
         return $renderer;
     };
 
+//    $container['db'] = function(ContainerInterface $c) {
+//        $db = new PDO('mysql:host=127.0.0.1;dbname=jobs', 'root', 'password');
+//        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+//        return $db;
+//    };
+
+    $container[PDO::class] = function(ContainerInterface $c) {
+        $db = new PDO('mysql:host=127.0.0.1;dbname=jobs', 'root', 'password');
+        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        return $db;
+    };
+
     $containerBuilder->addDefinitions($container);
 };

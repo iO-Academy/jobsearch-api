@@ -1,16 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Abstracts;
+namespace JobSearch\Abstracts;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
 abstract class Controller
 {
-
-    abstract public function __invoke(Request $request, Response $response, array $args);
-
     /**
      * @param Response $response a PSR-7 HTTP Response for the JSON and status code to be added
      * @param array $data an array of data to be JSON encoded and added to the response
@@ -22,7 +19,10 @@ abstract class Controller
     {
         $json = json_encode($data);
         if (false === $json) {
-            throw new \Exception('Cannot JSON encode data');
+            $errorData = ['message' => 'Unexpected error while encoding JSON data'];
+            $json = json_encode($errorData);
+            $response->getBody()->write($json);
+            return $response->withHeader('Content-type', 'application/json')->withStatus(500);
         }
         $response->getBody()->write($json);
         return $response->withHeader('Content-type', 'application/json')->withStatus($statusCode);
