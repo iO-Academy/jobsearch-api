@@ -179,6 +179,7 @@ This API only supports GET requests.
       "job_description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.\n\nIn congue. Etiam justo. Etiam pretium iaculis justo.\n\nIn hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\n\nNulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.\n\nCras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\n\nQuisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.\n\nPhasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
       "salary": "127228",
       "type": "Full time",
+      "posted": "2020-01-01",
       "skills": [
           {"id": "5","skill": "Ruby"}, {"id": "8","skill": "Python"}
       ]
@@ -196,7 +197,7 @@ This API only supports GET requests.
       **Content:** `{"message": "Invalid job ID"}`    
 
 
-### Returns 3 similar jobs to the provided job ID
+### Returns 4 similar jobs to the provided job ID
 
 * **URL**
 
@@ -349,7 +350,7 @@ This API only supports GET requests.
     * **Code:** 500 SERVER ERROR <br />
       **Content:** `{"message": "Unexpected error while encoding JSON data"}`
 
-### Returns 5 most recent companies that have posted a job
+### Returns 10 most recent companies that have posted a job
 
 * **URL**
 
