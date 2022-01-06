@@ -52,7 +52,11 @@ This API only supports GET requests.
 
     `skill=[integer]` - the ID of a skill. When used alone, this will return all jobs with this skill, when combined with search, it will return jobs with this skill that match the search term in the `job_title` or `company` fields.
 
-    `type=[alphabetical]` - filter jobs by the job type, the available values are: `Part time`, `Full time`, `Contract`. Note: not all jobs have a type
+    `type[]=[alphabetical]` - filter jobs by the job type, the available values are: `Part time`, `Full time`, `Contract`. Note: not all jobs have a type
+
+  **Example:**
+
+  `/jobs?search=developer&skill=7&type[]=Full time&type[]=Contract`
 
 * **Success Response:**
 

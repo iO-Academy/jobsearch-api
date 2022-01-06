@@ -16,7 +16,7 @@ class JobsModel
 
     public function searchAllJobs(
         string $searchTerm = null,
-        string $typeFilter = null,
+        array $typeFilter = null,
         int $skillFilter = null
     ): array
     {
@@ -47,8 +47,16 @@ class JobsModel
         }
 
         if (!empty($typeFilter)) {
-            $sql .= ' AND `type` = :typeFilter';
-            $params['typeFilter'] = $typeFilter;
+
+            $in = "";
+            foreach ($typeFilter as $i => $type) {
+                $key = ":type".$i;
+                $in .= "$key,";
+                $params[$key] = $type;
+            }
+            $in = rtrim($in,",");
+
+            $sql .= " AND `type` IN ($in)";
         }
 
         $sql .= ' GROUP BY `jobs`.`id` ORDER BY `posted`';
