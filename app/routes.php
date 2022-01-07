@@ -20,6 +20,15 @@ return function (App $app) {
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     });
 
+    $app->get('/', function($request, $response) {
+        $html = '<h1>JobSearch API</h1>
+                    <p>To use this API please check the 
+                        <a href="https://github.com/iO-Academy/jobsearch-api#api-documentation" target="_blank">documentation</a>.
+                    </p>';
+        $response->getBody()->write($html);
+        return $response->withHeader('Content-type', 'text/html')->withStatus(200);
+    });
+
     // can use optional filters with this route
     // /jobs?search=developer&type=Full time&skill=2
     $app->get('/jobs', '\JobSearch\Controllers\JobsController:jobSearch');
@@ -32,7 +41,7 @@ return function (App $app) {
     $app->get('/companies', '\JobSearch\Controllers\CompaniesController:getAllCompanies');
     $app->get('/companies/recent', '\JobSearch\Controllers\CompaniesController:getRecentCompanies');
 
-    $app->get('/[{wildcard}]', function ($request, $response) {
+    $app->get('/{wildcard}', function ($request, $response) {
         $errorData = ['message' => 'Invalid route'];
         $json = json_encode($errorData);
         $response->getBody()->write($json);
