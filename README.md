@@ -11,7 +11,10 @@ Clone this repo into your docker `html` folder:
 git clone git@github.com:iO-Academy/jobsearch-api.git
 ```
 
-Once cloned, you must install the vendor code by running:
+Once cloned, first install the database stored in `db/jobs.sql`.
+Create a database named `jobs`, then open the SQL file in your MySQL GUI and run all queries.
+
+After installing the database, install the vendor code by running the following from the root of the repo:
 
 ```bash
 composer install
@@ -21,6 +24,10 @@ To run the application locally:
 ```bash
 composer start
 ```
+
+**Do not close this terminal tab, it is a running process.**
+
+The API will now be accessible at `http://localhost:8080/`.
 
 That's it! Now go build something cool.
 </p>
