@@ -68,7 +68,7 @@ class JobsModel
 
     public function getRecentJobs(): array
     {
-        $sql = 'SELECT `id`, `job_title`, `company`, `logo`, `salary`, `type` FROM `jobs` ORDER BY `posted` ASC limit 10';
+        $sql = 'SELECT `id`, `job_title`, `company`, `logo`, `salary`, `type` FROM `jobs` ORDER BY `posted` DESC limit 10';
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
