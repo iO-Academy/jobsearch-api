@@ -1,23 +1,22 @@
 # ************************************************************
-# Sequel Pro SQL dump
-# Version 5446
+# Sequel Ace SQL dump
+# Version 20033
 #
-# https://www.sequelpro.com/
-# https://github.com/sequelpro/sequelpro
+# https://sequel-ace.com/
+# https://github.com/Sequel-Ace/Sequel-Ace
 #
 # Host: 127.0.0.1 (MySQL 5.7.30)
 # Database: jobs
-# Generation Time: 2021-12-23 14:44:54 +0000
+# Generation Time: 2022-06-13 12:55:39 +0000
 # ************************************************************
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 SET NAMES utf8mb4;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40101 SET @OLD_SQL_MODE='NO_AUTO_VALUE_ON_ZERO', SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
@@ -2994,6 +2993,32 @@ VALUES
 	(402,1000,10);
 
 /*!40000 ALTER TABLE `jobs_skills` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table partners
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `partners`;
+
+CREATE TABLE `partners` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(40) NOT NULL,
+  `isAdmin` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `partners` WRITE;
+/*!40000 ALTER TABLE `partners` DISABLE KEYS */;
+
+INSERT INTO `partners` (`id`, `name`, `token`, `isAdmin`)
+VALUES
+	(1,'AgencyZero','7e449a21d3e23ecbf8dc3bde3652e4eac977c978',0),
+	(2,'Recruitment4U','c1e501fc7ba3fe7c42da4342f9b421e1a5af2b7e',0),
+	(3,'JobSearch','25087dbe9e03ed62539f9e48ce9105b47704f1e2',1);
+
+/*!40000 ALTER TABLE `partners` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
